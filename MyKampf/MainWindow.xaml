@@ -1,0 +1,43 @@
+﻿<Window x:Class="MyKampf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyKampf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="493*"/>
+            <ColumnDefinition Width="277*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="1,5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Column="1" ItemsSource="{Binding vilagers}"
+                  SelectedItem="{Binding SelectedVilager}"
+                  SelectionMode="Multiple" Margin="0,25,291,173" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+            <ListView.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.146"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.573"/>
+                </TransformGroup>
+            </ListView.RenderTransform>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="Auto" Header="Профессия"
+                        DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="Auto" Header="Продукт"
+                        DisplayMemberBinding="{Binding Product}"/>
+                    <GridViewColumn Width="Auto" Header="Цена"
+                        DisplayMemberBinding="{Binding CostInEmeralds}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
